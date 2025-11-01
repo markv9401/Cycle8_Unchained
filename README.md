@@ -6,7 +6,7 @@ The TKD / Vertex Cycle 8 is a fantastic keyboard. It truly is. Looks, sounds and
 
 # Stuff in use
 ## QMK
-Of course I am using. Specifically, I'm utilizing the VIAL fork. Huge thanks to everyone @VIAL and @QMK. Please never stop these amazing projects!
+Of course I am using QMK. Specifically, I'm utilizing the VIAL fork. Huge thanks to everyone @VIAL and @QMK. Please never stop these amazing projects!
 
 ## UF2BOOT 
 I'm using uf2-stm32f103 by @mmoskal (https://github.com/mmoskal/uf2-stm32f103). It's a great project, albeit a little old. Had to do lots of hacks & patches quite dirty to get it to build. I'm planning to clean it up but I managed to get it to build & work for now. If you want to build it yourself, well good luck with that. But hey, it is possible. (I'll provide a pre-compiled version too in this repo.) 
@@ -17,7 +17,10 @@ If you trust me enough to use my pre-compiled binaries / firmwares, you can find
 
 ## QMK
 ### Build
-Just clone the official vial-qmk repo, replace `keyboards/vertex/cycle8` with this project's `qmk/cycle8` directory and build as usual (`make vertex/cycle8:vial`)
+Just clone the official vial-qmk repo, replace `keyboards/vertex/cycle8` with this project's corresponding _(wired_soldered, wired_hotswap, trimode)_ `qmk/cycle8` directory and build as usual (`make vertex/cycle8:vial`).
+* wired & soldered version should be perfectly fine, as that's the only one they actually shared "officially"..
+* wired & hot-swap definitely works - that's the one I'm using
+* someone leaked the trimode parts, so I included. Thanks a lot to @dqdb for providing it for me! Please note, neither of us have tri-mode and thus it's untested. It should work and it's highly unlikely to cause any irreversible damage as it's just a "soft firmware" and if you're here you're probably looking into replacing the bootloader too anyway, so.. 
 ### Flash
 Flash as usually with UF2BOOT
 
