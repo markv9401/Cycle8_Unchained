@@ -13,10 +13,11 @@ I'm using uf2-stm32f103 by @mmoskal (https://github.com/mmoskal/uf2-stm32f103). 
 
 # How to unchain the Cycle 8 with these?
 ## QMK
-Just clone the official vial-qmk repo, replace `keyboards/vertex/cycle8` with this project's `QMK/cycle8` directory and build as usual (`make vertex/cycle8:vial`)
+Just clone the official vial-qmk repo, replace `keyboards/vertex/cycle8` with this project's `qmk/cycle8` directory and build as usual (`make vertex/cycle8:vial`)
 
 ## UF2BOOT
-Well, for this you'll need an ST-LINK programmer. They're quite cheap and accessible. Next you'll want to take a look at the underside of the pcb. Orientate it in a way that the spacebar is facing North, face down. In this orientation, on the very right edge of the board you'll notice 4 unsoldered pins named `U4`. That's an ST-LINK port. In this orientation _(the STM chip should be North-West from the U4 port if you're holding it right)_, the pinout is the following, starting for the uppermost:
+To build, go into `uf2boot/src` and do `make TARGET=BLUEPILL V=1`. It kinda sometimes maybe perhaps builds by any chance. You'll probably need to hack some paths in the Makefiles that I have hardcoded for now, to at least get it to build.
+To flash this, you'll need an ST-LINK programmer. They're quite cheap and accessible. Next you'll want to take a look at the underside of the pcb. Orientate it in a way that the spacebar is facing North, face down. In this orientation, on the very right edge of the board you'll notice 4 unsoldered pins named `U4`. That's an ST-LINK port. In this orientation _(the STM chip should be North-West from the U4 port if you're holding it right)_, the pinout is the following, starting for the uppermost:
 *1: VSS / GND
 *2: SWCLK
 *3: SWDIO
