@@ -1,0 +1,40 @@
+name: Build QMK Firmware
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies & QMK VIAL
+        run: |
+          python -m pip install --upgrade pip
+          pip install qmk
+          qmk setup vial-kb/vial-qmk -b vial --yes
+      - name: Replace Cycle8
+        run: |
+          rm -rf vial-qmk/keyboards/vertex/cycle8/*
+          cp -r qmk/cycle8_wired_hotswap/* vial-qmk/keyboards/vertex/cycle8/
+
+      - name: Compile firmware
+        run: |
+          make -C vial-qmk vertex/cycle8:vial
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.20.0
+        with:
+          allowUpdates: true
+          artifacts: vertex_cycle8_vial.uf2
+          tag: hotswap
