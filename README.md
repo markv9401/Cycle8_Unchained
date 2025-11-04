@@ -16,7 +16,7 @@ I updated & modified [mmoskal/uf2-stm32f103](mmoskal/uf2-stm32f103) to be QMK co
 *Always* create a full dump / backup of your current flash contents via ST-LINK!
 
 ## Precompiled binaries / firmwares
-If you trust me enough to use my pre-compiled binaries / firmwares, you can find them at the releases page of this project. _(They are just compiled versions of the current state of this whole project, nothing less, nothing more. That was the whole point, after all)_
+You may own precompiled binaries / firmwares from the *releases* section. They're built from this source, via Github actions. Both of which you're more than welcome to check out and see for yourself. Transparancy and visibility, open-source freedom is key of this project.
 
 ## QMK
 ### Build
